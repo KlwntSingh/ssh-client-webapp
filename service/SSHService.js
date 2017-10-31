@@ -5,8 +5,10 @@ node_ssh = require('node-ssh')
 
 var connectAndExecute = function(obj, cb){
     let ssh = new node_ssh();
+    console.log(obj);
     ssh.connect({
       host: obj.host,
+      port : obj.port,
       username: obj.user,
       privateKey: obj.filePath
     }).then(function(){
@@ -19,13 +21,14 @@ var connectAndExecute = function(obj, cb){
               return cb(null, result);
             },
             onStderr(chunk) {
-              sh.dispose();
+              ssh.dispose();
               var result = chunk.toString('utf8');
               console.log('stderrChunk', result)
-              return cb(null, result);
+              return cb(null, "Not able to run command");
             },
         })
     }).catch(function(err){
+        console.log(err);
         ssh.dispose();
         cb(err);
     })

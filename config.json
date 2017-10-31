@@ -1,12 +1,14 @@
 {
     "port" : 3000,
     "database" : {
-        "user" : "root",
         "host" : "localhost",
-        "password" : "kulwantsingh",
-        "port" : 3600
+        "user" : "root",
+        "password" : "Kulwant@12345",
+        "port" : 12346,
+        "database" : "application"
     },
     "sshServer" : {
-        "host" : ""
+        "host" : "localhost",
+        "port" : 12347
     }
 }

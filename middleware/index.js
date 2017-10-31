@@ -1,12 +1,15 @@
 var session = require('express-session');
+var body = require('body-parser');
 
 module.exports = function(app){
 
+    app.use(body());
+
     app.use(session({
-      secret: 'keyboard cat',
+      secret: 'keyboardcat',
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: true, maxAge : 60000 }
+      cookie: { secure: false, maxAge : 60000 }
     }))
 
 }

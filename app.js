@@ -17,3 +17,4 @@ app.use(require('controller'));
 
 // starting application server
 var server = app.listen(PORT);
+console.log("Server Started listening on " + PORT);
